@@ -1,0 +1,33 @@
+<table class="table">
+  <thead>
+    <tr >
+      <th *ngFor="let col of columns ">{{col.name}}</th>
+    </tr>
+  </thead>
+<tbody>
+  <tr *ngFor="let item of data">
+
+    <td *ngFor="let colum of columns">
+
+      <ng-container *ngIf="colum.type === 'text'">
+          {{item[colum.name]}}
+      </ng-container>
+
+
+      <ng-container *ngIf="colum.type === 'number'">
+        {{item[colum.name]}}
+      </ng-container>
+
+
+      <ng-container *ngIf="colum.type === 'button'">
+        <button (click)="onAction(item , colum.action ?? '')" class={{colum.action}}>
+            {{colum.name}}
+        </button>
+      </ng-container>
+
+    </td>
+
+  </tr>
+</tbody>
+</table>
+

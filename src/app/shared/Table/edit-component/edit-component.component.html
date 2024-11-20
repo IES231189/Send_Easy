@@ -1,0 +1,15 @@
+<div class="modal-overlay">
+  <div class="modal-content">
+    <form (ngSubmit)="OnSave()">
+      <div class="form-group" *ngFor="let key of getObjectKeys(editedData)">
+        <label>{{ key }}</label>
+        <input [(ngModel)]="editedData[key]" name="{{key}}" type="text" required />
+      </div>
+      <div class="button-group">
+        <button type="submit" class="btn-save">Guardar</button>
+        <button type="button" (click)="OnCancel()" class="btn-cancel">Cancelar</button>
+      </div>
+    </form>
+  </div>
+
+</div>
