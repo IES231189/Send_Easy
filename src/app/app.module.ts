@@ -15,11 +15,8 @@ import { AdminModule } from './role/admin/admin.module';
 @NgModule({
   declarations: [
     AppComponent,
-    SidebarComponentComponent,
     ProductosCardsComponent,
     ProductosListTableComponent,
-
-
 
   ],
   imports: [
