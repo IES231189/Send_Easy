@@ -1,1 +1,22 @@
-<p>sidebar-component works!</p>
+<div class="sidebar bg-gray-800 text-white h-screen fixed top- left-0 " [class.-translate-x-full]="">
+
+  <button class="p-2 text-white" (click)="toggleSidebar()">X</button>
+
+  <div class="mt-10">
+    <ul *ngIf="isOpen">
+      <li class="px-4 p-2 w-64 hover:bg-gray-700">
+        <a routerLink="/admin/Inicio">Inicio</a>
+      </li>
+      <li class="px-4 p-2 w-64 hover:bg-gray-700">
+        <a routerLink="/admin/ofertas">Ofertas</a>
+      </li>
+      <li class="px-4 p-2 w-64 hover:bg-gray-700">
+        <a routerLink="/admin/productos">Productos</a>
+      </li>
+
+
+    </ul>
+  </div>
+</div>
+
+
