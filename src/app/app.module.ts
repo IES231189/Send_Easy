@@ -9,6 +9,8 @@ import { TableComponent } from './shared/Table/table/table.component';
 import { SidebarComponentComponent } from './role/admin/sidebar-component/sidebar-component.component';
 import { ProductosCardsComponent } from './role/admin/Productos/productos-cards/productos-cards.component';
 import { ProductosListTableComponent } from './role/admin/Productos/productos-list-table/productos-list-table.component';
+import { AdminAppComponent } from './role/admin/admin-app/admin-app.component';
+import { AdminModule } from './role/admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -18,11 +20,13 @@ import { ProductosListTableComponent } from './role/admin/Productos/productos-li
     ProductosListTableComponent,
 
 
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AuthModule
+    AuthModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -25,4 +25,19 @@ export class AuthService {
     return this.currentUser;
   }
 
+  isLoggedIn(): boolean {
+    return this.getUser() !== null;
+  }
+
+  hasRole(role: string): boolean {
+    const user = this.getUser();
+    return user ? user.role === role : false;
+  }
+
+  logout(): void {
+    this.currentUser = null;
+    localStorage.removeItem('user');
+  }
+
+
 }

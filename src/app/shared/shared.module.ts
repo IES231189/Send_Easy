@@ -4,6 +4,8 @@ import { EditComponentComponent } from './Table/edit-component/edit-component.co
 import { DeleteComponentComponent } from './Table/delete-component/delete-component.component';
 import { TableComponent } from './Table/table/table.component';
 import { FormsModule } from '@angular/forms';
+import { HeaderComponentComponent } from './Header/header-component/header-component.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -11,15 +13,19 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     EditComponentComponent,
     DeleteComponentComponent,
-    TableComponent
+    TableComponent,
+    HeaderComponentComponent
   ],
   imports: [
     CommonModule ,
     FormsModule,
-    
+    RouterModule
   ],
   exports: [
-
+    TableComponent,
+    EditComponentComponent,
+    DeleteComponentComponent,
+    HeaderComponentComponent
   ]
 })
 export class SharedModule { }
