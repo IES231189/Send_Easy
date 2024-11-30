@@ -6,6 +6,8 @@ import { TableComponent } from './Table/table/table.component';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponentComponent } from './Header/header-component/header-component.component';
 import { RouterModule } from '@angular/router';
+import { ListNavComponent } from './list-nav/list-nav.component';
+
 
 
 
@@ -14,7 +16,8 @@ import { RouterModule } from '@angular/router';
     EditComponentComponent,
     DeleteComponentComponent,
     TableComponent,
-    HeaderComponentComponent
+    HeaderComponentComponent,
+    ListNavComponent
   ],
   imports: [
     CommonModule ,
