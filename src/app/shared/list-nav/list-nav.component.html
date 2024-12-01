@@ -1,7 +1,10 @@
 <div class="nav-container">
   <ul>
     <li *ngFor="let option of navOptions">
-      <button (click)="navigateTo(option.route)">
+      <button
+        [routerLink]="option.route"
+        routerLinkActive="active"  
+        [routerLinkActiveOptions]="{ exact: true }"> <!-- Solo se activa si la ruta es exactamente la misma -->
         {{ option.label }}
       </button>
     </li>

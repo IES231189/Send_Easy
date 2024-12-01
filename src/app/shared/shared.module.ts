@@ -1,34 +1,32 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EditComponentComponent } from './Table/edit-component/edit-component.component';
-import { DeleteComponentComponent } from './Table/delete-component/delete-component.component';
-import { TableComponent } from './Table/table/table.component';
 import { FormsModule } from '@angular/forms';
-import { HeaderComponentComponent } from './Header/header-component/header-component.component';
 import { RouterModule } from '@angular/router';
 import { ListNavComponent } from './list-nav/list-nav.component';
-
-
-
+import { HeaderComponentComponent } from './Header/header-component/header-component.component';
+import { TableComponent } from './Table/table/table.component';
+import { EditComponentComponent } from './Table/edit-component/edit-component.component';
+import { DeleteComponentComponent } from './Table/delete-component/delete-component.component';
 
 @NgModule({
   declarations: [
-    EditComponentComponent,
-    DeleteComponentComponent,
-    TableComponent,
+    ListNavComponent,
     HeaderComponentComponent,
-    ListNavComponent
+    TableComponent,
+    EditComponentComponent,
+    DeleteComponentComponent
   ],
   imports: [
-    CommonModule ,
+    CommonModule,
     FormsModule,
     RouterModule
   ],
   exports: [
+    ListNavComponent,
+    HeaderComponentComponent,
     TableComponent,
     EditComponentComponent,
-    DeleteComponentComponent,
-    HeaderComponentComponent
+    DeleteComponentComponent
   ]
 })
 export class SharedModule { }

@@ -1,33 +1,45 @@
-<table class="table">
-  <thead>
-    <tr >
-      <th *ngFor="let col of columns ">{{col.name}}</th>
+<table class="min-w-full table-auto border-collapse border border-gray-200 shadow-sm rounded-lg overflow-hidden">
+  <thead class="bg-gray-600 ">
+    <tr>
+      <th
+        *ngFor="let col of columns"
+        class="px-4 py-2 text-left text-sm font-semibold  border-gray-300 text-white font-bold"
+      >
+        {{ col.name }}
+      </th>
     </tr>
   </thead>
-<tbody>
-  <tr *ngFor="let item of data">
+  <tbody class="bg-white">
+    <tr
+      *ngFor="let item of data"
 
-    <td *ngFor="let colum of columns">
+    >
+      <td
+        *ngFor="let colum of columns"
+        class="px-4 py-2   text-sm "
+      >
+        <!-- Campo de texto -->
+        <ng-container *ngIf="colum.type === 'text'">
+          {{ item[colum.name] }}
+        </ng-container>
 
-      <ng-container *ngIf="colum.type === 'text'">
-          {{item[colum.name]}}
-      </ng-container>
+        <!-- Campo de número -->
+        <ng-container *ngIf="colum.type === 'number'">
+          {{ item[colum.name] }}
+        </ng-container>
 
-
-      <ng-container *ngIf="colum.type === 'number'">
-        {{item[colum.name]}}
-      </ng-container>
-
-
-      <ng-container *ngIf="colum.type === 'button'">
-        <button (click)="onAction(item , colum.action ?? '')" class={{colum.action}}>
-            {{colum.name}}
-        </button>
-      </ng-container>
-
-    </td>
-
-  </tr>
-</tbody>
+        <!-- Botones -->
+        <ng-container *ngIf="colum.type === 'button'">
+          <button
+            (click)="onAction(item, colum.action ?? '')"
+            class="px-3 py-1 text-white rounded-md font-medium shadow-sm hover:shadow-md transition-shadow
+            bg-gray-800 hover:bg-gray-600
+              "
+          >
+            {{ colum.name }}
+          </button>
+        </ng-container>
+      </td>
+    </tr>
+  </tbody>
 </table>
-
