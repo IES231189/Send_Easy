@@ -6,6 +6,7 @@ import { SidebarComponentComponent } from './sidebar-component/sidebar-component
 import { OfertasPanelComponent } from './Ofertas/components/ofertas-panel/ofertas-panel.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { RouterModule } from '@angular/router';
+import { OfertasModule } from './Ofertas/ofertas.module';
 
 
 
@@ -13,13 +14,14 @@ import { RouterModule } from '@angular/router';
   declarations: [
     AdminAppComponent,
     SidebarComponentComponent,
-    OfertasPanelComponent
+
   ],
   imports: [
     CommonModule,
     SharedModule,
     AdminRoutingModule,
-    RouterModule
+    RouterModule,
+    OfertasModule
   ]
 })
 export class AdminModule { }
