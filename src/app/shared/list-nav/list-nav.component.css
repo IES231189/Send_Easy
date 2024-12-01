@@ -1,0 +1,28 @@
+.nav-container {
+  padding-top: 4rem;
+  text-align: center;
+  margin-left: 4rem;
+}
+
+.nav-container ul {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 2rem;
+  font-weight: bold;
+  font-size: medium;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.nav-container button.active {
+ border-bottom: 2px solid #007bff;
+  font-weight: bold;
+}
+
+.nav-container button {
+  background-color: transparent;
+  padding: 1rem;
+}
+
+.nav-container button:hover {
+
+}

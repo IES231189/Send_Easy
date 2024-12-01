@@ -1,0 +1,44 @@
+<div class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
+  <div class="bg-white rounded-lg shadow-lg max-w-lg w-full p-6 relative">
+    <form (ngSubmit)="OnSave()">
+      <!-- Título del Modal -->
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">Editar Registro</h2>
+
+      <!-- Campos del Formulario -->
+      <div
+        class="mb-4"
+        *ngFor="let key of getObjectKeys(editedData)"
+      >
+        <label
+          class="block text-sm font-medium text-gray-700 mb-2"
+          >{{ key }}</label
+        >
+        <input
+          [(ngModel)]="editedData[key]"
+          name="{{ key }}"
+          type="text"
+          required
+          class="block w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        />
+      </div>
+
+      <!-- Botones -->
+      <div class="flex justify-end space-x-3">
+        <button
+          type="button"
+          (click)="OnCancel()"
+          class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition"
+        >
+          Cancelar
+        </button>
+        <button
+          type="submit"
+          class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
+        >
+          Guardar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+

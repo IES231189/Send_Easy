@@ -1,0 +1,20 @@
+<div class="container-ofertas">
+  <!-- Botón para abrir el formulario -->
+  <button (click)="showAddForm = !showAddForm" class="bg-gray-800 p-2 mb-4 border text-white">
+    Agregar Oferta
+  </button>
+
+
+  <!-- Formulario para agregar una nueva oferta -->
+  <app-form-ofertas *ngIf="showAddForm" (agregarOferta)="onAddOferta($event)" (closeModal)="closeModal()"></app-form-ofertas>
+
+  <!-- Tabla de ofertas -->
+  <app-table [data]="ofertas" [columns]="columns" (edit)="onEdit($event)" (delete)="onDelete($event)"></app-table>
+
+  <!-- Modal de editar y eliminar -->
+  <app-edit-component *ngIf="showEditModal" [registroTable]="selectedRow"
+    (GuardarCambios)="saveChanges($event)"></app-edit-component>
+
+  <app-delete-component *ngIf="showDeleteModal" [registroTable]="selectedRow" (confirmDelete)="confirmDelete()"
+    (cancelDelete)="cancelDelete()"></app-delete-component>
+</div>

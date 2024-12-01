@@ -1,0 +1,12 @@
+<div>
+  <app-header-component [navOptions]="adminNavOptions"></app-header-component>
+
+  <div class="flex">
+    <app-sidebar-component class="w-64  text-white h-screen"></app-sidebar-component>
+
+    <div class="flex-1 p-4 bg-gray-100">
+      <!-- Contenido específico para administradores -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

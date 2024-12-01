@@ -1,0 +1,17 @@
+p{
+  font-weight: 900;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: xx-large;
+  margin-top: 4rem;
+}
+
+
+.container-panel {
+  width: 100%;
+  
+  padding-inline: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8rem; /* Ajusta el espacio según tus necesidades */
+}

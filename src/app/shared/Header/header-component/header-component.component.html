@@ -1,0 +1,11 @@
+<header>
+  <nav>
+    <ul>
+      <img src="../../../../assets/logo.png" alt="logo" width="180px">
+      <li *ngFor="let option of navOptions">
+        <a [routerLink]="option.path">{{ option.label }}</a>
+      </li>
+    </ul>
+  </nav>
+  <button *ngIf="isLoggedIn" (click)="logout()">Cerrar Sesión</button>
+</header>
