@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { OfertaService } from '../../services/oferta.service';
 import { Ofertas } from '../../models/ofertas';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-table-crud',
@@ -23,7 +24,7 @@ export class TableCrudComponent implements OnInit {
   showDeleteModal = false;
   showAddForm = false;
 
-  constructor(private ofertaService: OfertaService) {}
+  constructor(private ofertaService: OfertaService, private cdr: ChangeDetectorRef , private router:Router) {}
 
   ngOnInit(): void {
     this.loadOfertas();
@@ -46,12 +47,14 @@ export class TableCrudComponent implements OnInit {
 
   onAddOferta(newOferta: Ofertas): void {
     this.ofertaService.createOferta(newOferta).subscribe((response) => {
-      this.ofertas.push(response);
+
+      this.ofertas = [...this.ofertas, response];
       this.showAddForm = false;
+      
+      this.router.navigate(['/ofertas'])
+      this.cdr.detectChanges();
     });
   }
-
-
 
   onEdit(oferta: Ofertas) {
     this.selectedRow = oferta;
@@ -63,18 +66,44 @@ export class TableCrudComponent implements OnInit {
     this.showDeleteModal = true;
   }
 
-  saveChanges(updatedOferta: Ofertas) {
-    const index = this.ofertas.findIndex((o) => o.id_oferta === updatedOferta.id_oferta);
-    if (index !== -1) {
-      this.ofertas[index] = { ...updatedOferta };
+  saveChanges(updatedOferta: Ofertas): void {
+    console.log('Datos recibidos en el componente padre para actualizar:', updatedOferta);
+
+    if (!updatedOferta || !updatedOferta.id_oferta) {
+      console.error('El registro no tiene un ID válido.');
+      return;
     }
-    this.showEditModal = false;
+
+    this.ofertaService.updateOferta(updatedOferta.id_oferta, updatedOferta).subscribe(
+      (response) => {
+        console.log('Respuesta de la API:', response);
+
+        const index = this.ofertas.findIndex((o) => o.id_oferta === updatedOferta.id_oferta);
+        if (index !== -1) {
+          this.ofertas[index] = { ...updatedOferta };
+        }
+        this.showEditModal = false;
+      },
+      (error) => {
+        console.error('Error al actualizar la oferta:', error);
+      }
+    );
   }
 
   confirmDelete() {
-    this.ofertas = this.ofertas.filter((o) => o.id_oferta !== this.selectedRow?.id_oferta);
-    this.showDeleteModal = false;
-    this.selectedRow = null;
+    if (this.selectedRow) {
+      this.ofertaService.deleteOferta(this.selectedRow.id_oferta).subscribe(
+        () => {
+          // Eliminar la oferta de la lista en el frontend
+          this.ofertas = this.ofertas.filter(o => o.id_oferta !== this.selectedRow?.id_oferta);
+          this.showDeleteModal = false;
+          this.selectedRow = null;
+        },
+        (error) => {
+          console.error('Error al eliminar la oferta:', error);
+        }
+      );
+    }
   }
 
   cancelDelete() {
@@ -85,5 +114,4 @@ export class TableCrudComponent implements OnInit {
   closeModal(){
     this.showAddForm = false;
   }
-
 }

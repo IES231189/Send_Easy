@@ -12,6 +12,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { OfertaService } from './services/oferta.service';
 import { FormOfertasComponent } from './components/form-ofertas/form-ofertas.component';
 import { FormsModule } from '@angular/forms';
+import { VincularOfertasComponent } from './components/vincular-ofertas/vincular-ofertas.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     OfertasPanelComponent,
     TableCrudComponent,
     FormOfertasComponent,
-    FormOfertasComponent
+    FormOfertasComponent,
+    VincularOfertasComponent
   ],
   imports: [
     CommonModule,
