@@ -7,8 +7,10 @@ import { OfertasPanelComponent } from './Ofertas/components/ofertas-panel/oferta
 const routes: Routes = [
   { path: '', component: AdminAppComponent,
     children:[
-      {path:'ofertas' , loadChildren:() =>import('./Ofertas/ofertas.module').then(m=>m.OfertasModule)}
-  ]}
+      {path:'ofertas' , loadChildren:() =>import('./Ofertas/ofertas.module').then(m=>m.OfertasModule)},
+      {path:'productos' , loadChildren :()=>import('../admin/Productos/productos.module').then(m =>m.ProductosModule)}
+  ]
+}
 ];
 
 @NgModule({
