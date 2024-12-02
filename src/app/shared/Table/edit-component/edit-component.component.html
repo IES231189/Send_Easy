@@ -1,39 +1,99 @@
-<div class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
-  <div class="bg-white rounded-lg shadow-lg max-w-lg w-full p-6 relative">
-    <form (ngSubmit)="OnSave()">
-      <!-- Título del Modal -->
-      <h2 class="text-xl font-semibold text-gray-800 mb-4">Editar Registro</h2>
-
-      <!-- Campos del Formulario -->
-      <div
-        class="mb-4"
-        *ngFor="let key of getObjectKeys(editedData)"
+<div
+  class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50"
+>
+  <div
+    class="bg-white rounded-lg shadow-lg max-w-lg w-full p-6 relative"
+  >
+    <!-- Botón de cierre -->
+    <button
+      class="absolute top-3 right-3 text-gray-500 hover:text-gray-700 focus:outline-none"
+      (click)="OnCancel()"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
       >
-        <label
-          class="block text-sm font-medium text-gray-700 mb-2"
-          >{{ key }}</label
-        >
-        <input
-          [(ngModel)]="editedData[key]"
-          name="{{ key }}"
-          type="text"
-          required
-          class="block w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"
         />
+      </svg>
+    </button>
+
+    <!-- Título -->
+    <h2
+      class="text-2xl font-semibold text-gray-800 text-center mb-6"
+    >
+      Editar Oferta
+    </h2>
+
+    <!-- Formulario -->
+    <form (ngSubmit)="OnSave()" class="space-y-4">
+      <!-- Campos dinámicos -->
+      <div class="grid grid-cols-1 gap-4" *ngFor="let key of getObjectKeys(editedData)">
+        <label
+          class="block text-sm font-semibold text-gray-700 capitalize"
+          [for]="key"
+        >
+          {{ key.replace('_', ' ') }}
+        </label>
+
+        <!--  lectura para 'id_oferta' -->
+        <ng-container *ngIf="key === 'id_oferta'">
+          <input
+            [(ngModel)]="editedData[key]"
+            [id]="key"
+            name="{{ key }}"
+            type="text"
+            readonly
+            class="block w-full px-4 py-2 border rounded-md bg-gray-100 cursor-not-allowed text-gray-500"
+          />
+        </ng-container>
+
+        <!-- Campos de tipo fecha ('fecha_inicio' y 'fecha_fin') -->
+        <ng-container *ngIf="key === 'fecha_inicio' || key === 'fecha_fin'">
+          <input
+            [(ngModel)]="editedData[key]"
+            [id]="key"
+            name="{{ key }}"
+            type="date"
+            required
+            class="block w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          />
+        </ng-container>
+
+        <!-- Otros campos de texto -->
+        <ng-container *ngIf="key !== 'id_oferta' && key !== 'fecha_inicio' && key !== 'fecha_fin'">
+          <input
+            [(ngModel)]="editedData[key]"
+            [id]="key"
+            name="{{ key }}"
+            type="text"
+            required
+            class="block w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          />
+        </ng-container>
       </div>
 
-      <!-- Botones -->
-      <div class="flex justify-end space-x-3">
+      <!-- Botones de acción -->
+      <div
+        class="flex justify-end space-x-3 mt-6"
+      >
         <button
           type="button"
           (click)="OnCancel()"
-          class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition"
+          class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition focus:outline-none"
         >
           Cancelar
         </button>
         <button
           type="submit"
-          class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
+          class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition focus:outline-none"
         >
           Guardar
         </button>
@@ -41,4 +101,3 @@
     </form>
   </div>
 </div>
-
