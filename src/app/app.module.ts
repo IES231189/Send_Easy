@@ -8,15 +8,12 @@ import { LoginComponentsComponent } from './auth/components/login-components/log
 import { TableComponent } from './shared/Table/table/table.component';
 import { SidebarComponentComponent } from './role/admin/sidebar-component/sidebar-component.component';
 import { ProductosCardsComponent } from './role/admin/Productos/components/productos-cards/productos-cards.component';
-import { ProductosListTableComponent } from './role/admin/Productos/components/productos-list-table/productos-list-table.component';
 import { AdminAppComponent } from './role/admin/admin-app/admin-app.component';
 import { AdminModule } from './role/admin/admin.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductosCardsComponent,
-    ProductosListTableComponent,
 
   ],
   imports: [

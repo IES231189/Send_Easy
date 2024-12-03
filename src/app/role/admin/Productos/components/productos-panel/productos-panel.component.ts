@@ -15,7 +15,7 @@ export class ProductosPanelComponent {
 
   productsNavOptions: NavOption[] = [
 
-    { label: 'Agregar producto', route: '/admin/productos/' },
+    { label: 'Agregar producto', route: '/admin/productos/add' },
     { label: 'Ver Productos', route: '/admin/productos/all' },
     { label: 'Categorias', route: '/admin/productos/categories' },
     { label: 'Recientes', route: '/admin/productos/' },

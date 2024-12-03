@@ -1,0 +1,77 @@
+<div class="container mx-auto p-4">
+  <form [formGroup]="productoForm" (ngSubmit)="onSubmit()">
+
+    <!-- Campo Nombre -->
+    <div class="mb-4">
+      <label for="nombre" class="block text-sm font-semibold">Nombre</label>
+      <input
+        id="nombre"
+        formControlName="nombre"
+        type="text"
+        class="w-full p-2 border border-gray-300 rounded"
+        required
+      />
+    </div>
+
+    <!-- Campo Descripción -->
+    <div class="mb-4">
+      <label for="descripcion" class="block text-sm font-semibold">Descripción</label>
+      <textarea
+        id="descripcion"
+        formControlName="descripcion"
+        class="w-full p-2 border border-gray-300 rounded"
+        required
+      ></textarea>
+    </div>
+
+    <!-- Campo Precio -->
+    <div class="mb-4">
+      <label for="precio" class="block text-sm font-semibold">Precio</label>
+      <input
+        id="precio"
+        formControlName="precio"
+        type="number"
+        class="w-full p-2 border border-gray-300 rounded"
+        required
+      />
+    </div>
+
+    <!-- Campo Stock -->
+    <div class="mb-4">
+      <label for="stock" class="block text-sm font-semibold">Stock</label>
+      <input
+        id="stock"
+        formControlName="stock"
+        type="number"
+        class="w-full p-2 border border-gray-300 rounded"
+        required
+      />
+    </div>
+
+    <!-- Campo Categoría -->
+    <div class="mb-4">
+      <label for="id_categoria" class="block text-sm font-semibold">Categoría</label>
+      <select id="id_categoria" formControlName="id_categoria" class="w-full p-2 border border-gray-300 rounded" required>
+        <option *ngFor="let categoria of categorias" [value]="categoria.id_categoria">{{ categoria.nombre }}</option>
+      </select>
+    </div>
+
+    <!-- Carga de imagen -->
+    <div class="mb-4">
+      <label for="imagen_url" class="block text-sm font-semibold">Imagen</label>
+      <input
+        id="imagen_url"
+        type="file"
+        (change)="onFileChange($event)"
+        class="w-full p-2 border border-gray-300 rounded"
+        required
+      />
+      <div *ngIf="imagePreview" class="mt-2">
+        <img [src]="imagePreview" alt="Vista previa" class="max-w-[200px]" />
+      </div>
+    </div>
+
+    <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded">Crear Producto</button>
+  </form>
+</div>
+

@@ -8,16 +8,20 @@ import { CategoriesModule } from '../Categories/categories.module';
 import { ProductosComponent } from './components/productos/productos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductosService } from './services/productos.service';
+import { FormProductosComponent } from './components/form-productos/form-productos.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     ProductosPanelComponent,
-    ProductosComponent
+    ProductosComponent,
+    FormProductosComponent
   ],
   imports: [
     CommonModule,
     ProductosRoutingModule,
+    ReactiveFormsModule,
     HttpClientModule,
     SharedModule,
     CategoriesModule

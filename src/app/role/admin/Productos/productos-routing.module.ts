@@ -4,13 +4,15 @@ import { ProductosPanelComponent } from './components/productos-panel/productos-
 import { CategoriaFormComponent } from '../Categories/components/form-categories/form-categories.component';
 import { TableCategoriesComponent } from '../Categories/components/table-categories/table-categories.component';
 import { ProductosComponent } from './components/productos/productos.component';
+import { FormProductosComponent } from './components/form-productos/form-productos.component';
 
 const routes: Routes = [
   {
     path: '', component: ProductosPanelComponent,
     children: [
       {path:'categories' , loadChildren: () =>import('../Categories/categories.module').then(m=>m.CategoriesModule)},
-      {path:'all' , component:ProductosComponent}
+      {path:'all' , component:ProductosComponent},
+      {path:'add' , component:FormProductosComponent}
     ]
   }
 ];
