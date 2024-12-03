@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Producto } from '../../model/producto';
 import { ProductosService } from '../../services/productos.service';
+import { Action } from 'rxjs/internal/scheduler/Action';
 
 @Component({
   selector: 'app-productos',
@@ -17,9 +18,9 @@ export class ProductosComponent {
     { name: 'descripcion', type: 'text' },
     { name: 'precio', type: 'number' },
     { name: 'stock', type: 'number' },
-    { name: 'id_categoria', type: 'number' },
     { name: 'imagen_url', type: 'image' },
-    { name: 'edit', type: 'button', action: 'edit' }
+    { name: 'editar', type: 'button', action: 'edit' },
+    {name:'eliminar' , type:'button' , action:'delete'}
   ];
 
   constructor(private productoService: ProductosService) { }
