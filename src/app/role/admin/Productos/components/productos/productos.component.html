@@ -1,0 +1,16 @@
+<!-- src/app/components/productos/productos.component.html -->
+<div class="container mx-auto p-4 ">
+  <app-table
+    [data]="productos"
+    [columns]="columnas"
+    (edit)="onEdit($event)"
+    (delete)="onDelete($event)">
+  </app-table>
+
+
+
+</div>
+
+
+
+

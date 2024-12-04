@@ -1,4 +1,5 @@
 import { Component  , Input , Output ,EventEmitter} from '@angular/core';
+import { Ofertas } from '../../../role/admin/Ofertas/models/ofertas';
 
 @Component({
   selector: 'app-table',
@@ -21,6 +22,10 @@ export class TableComponent {
     } else if (action === "delete") {
       this.delete.emit(row)
     }
+  }
+
+  trackByOferta(index: number, oferta: Ofertas): any {
+    return oferta.id_oferta;  // o cualquier campo único que identifique de manera única a cada oferta
   }
 
 }

@@ -29,10 +29,9 @@ getOfertas(): Observable<Ofertas[]> {
   }
 
   // Actualizar una oferta existente
-  updateOferta(oferta: Ofertas): Observable<Ofertas> {
-    return this.http.put<Ofertas>(`${this.apiUrl}/${oferta.id_oferta}`, oferta);
+  updateOferta(id: number, oferta: Ofertas): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${id}`, oferta);
   }
-
   // Eliminar una oferta
   deleteOferta(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);

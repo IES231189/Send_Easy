@@ -15,6 +15,7 @@ import { OfertasModule } from './Ofertas/ofertas.module';
     AdminAppComponent,
     SidebarComponentComponent,
 
+
   ],
   imports: [
     CommonModule,

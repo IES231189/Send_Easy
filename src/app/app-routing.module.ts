@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'admin', loadChildren: () => import('./role/admin/admin.module').then(m => m.AdminModule), canActivate: [adminGuard] },
   { path: 'login', component: LoginComponentsComponent },
-  { path: '*', redirectTo: 'login' }
+  { path: '*', redirectTo: 'login' },
+  
 
 ];
 

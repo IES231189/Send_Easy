@@ -1,7 +1,9 @@
 .nav-container {
   padding-top: 4rem;
   text-align: center;
-  margin-left: 4rem;
+  width: 80%;
+
+
 }
 
 .nav-container ul {

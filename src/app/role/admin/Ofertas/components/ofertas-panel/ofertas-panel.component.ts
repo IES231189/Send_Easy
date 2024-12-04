@@ -14,8 +14,8 @@ export class OfertasPanelComponent {
 
   adminNavOptions: NavOption[] = [
 
-    { label: 'Ver todas las ofertas', route: 'admin/ofertas/all' },
-    { label: 'Agregar Ofertas', route: '/admin/ofertas/add' },
+    { label: 'Vincular Ofertas', route: '/admin/ofertas/all' },
+    { label: 'ofertas', route: '/admin/ofertas/add' },
   ];
 
 }
