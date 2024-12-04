@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ListNavComponent } from './list-nav/list-nav.component';
 import { HeaderComponentComponent } from './Header/header-component/header-component.component';
@@ -19,7 +19,9 @@ import { DeleteComponentComponent } from './Table/delete-component/delete-compon
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     ListNavComponent,

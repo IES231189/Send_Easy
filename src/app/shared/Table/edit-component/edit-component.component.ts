@@ -30,7 +30,7 @@ export class EditComponentComponent implements OnChanges {
 
 
   OnSave() {
-    if (!this.editedData || !this.editedData.id_oferta) {
+    if (!this.editedData) {
       console.error('El objeto a guardar no tiene un ID válido:', this.editedData);
       return;
     }
@@ -47,6 +47,8 @@ export class EditComponentComponent implements OnChanges {
   getObjectKeys(obj: any): string[] {
     return Object.keys(obj);
   }
+
+
 
   private formatDateForInput(date: string): string {
     // Asegúrate de que la fecha esté en formato YYYY-MM-DD
