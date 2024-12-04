@@ -11,6 +11,8 @@ import { Action } from 'rxjs/internal/scheduler/Action';
 export class ProductosComponent {
 
   productos: Producto[] = [];
+  mostrarModal: boolean = false;
+  productoSeleccionado: Producto | null = null;
 
   columnas = [
     {name:'id_producto' , type:'number'},
@@ -47,12 +49,23 @@ export class ProductosComponent {
   }
 
   onEdit(producto: Producto) {
-    console.log('Editar producto', producto);
-    // Implementar lógica de edición
+    this.productoSeleccionado = { ...producto }; // Copia del producto para editar
+    this.mostrarModal = true; // Muestra el modal
   }
 
   onDelete(producto: Producto) {
     console.log('Eliminar producto', producto);
-    // Implementar lógica de eliminación
+    // Lógica para eliminar el producto
+  }
+
+  guardarCambios(productoEditado: Producto) {
+    console.log('Producto editado:', productoEditado);
+    // Lógica para actualizar el producto en el backend
+    this.mostrarModal = false; // Cierra el modal
+    this.cargarProductos(); // Recarga la lista de productos
+  }
+
+  cerrarModal() {
+    this.mostrarModal = false;
   }
 }
