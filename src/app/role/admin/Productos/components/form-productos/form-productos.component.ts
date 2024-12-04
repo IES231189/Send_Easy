@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ProductosCategoriasService } from '../../services/productos-categorias.service';
 import { Producto } from '../../model/producto';
 import { Categoria } from '../../../Categories/models/categorias';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class FormProductosComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private productosCategoriasService: ProductosCategoriasService
+    private productosCategoriasService: ProductosCategoriasService,
+    private router:Router
   ) {
     this.productoForm = this.fb.group({
       nombre: ['', Validators.required],
@@ -60,7 +62,7 @@ export class FormProductosComponent implements OnInit {
   // Enviar formulario
   onSubmit() {
     if (this.productoForm.valid) {
-      // Crear FormData para enviar el archivo
+      // FormData para enviar el archivo
       const formData = new FormData();
       formData.append('nombre', this.productoForm.get('nombre')?.value);
       formData.append('descripcion', this.productoForm.get('descripcion')?.value);
@@ -74,11 +76,13 @@ export class FormProductosComponent implements OnInit {
         formData.append('imagen', imagen);
       }
 
-      // Enviar el formulario con el archivo
+      // Enviamos el archivo
       this.productosCategoriasService.createProducto(formData).subscribe(
         (response) => {
           console.log('Producto creado', response);
-          // Puedes redirigir o resetear el formulario después de crear el producto
+          //  después de crear el producto
+           alert('Producto creado');
+           this.router.navigate(['/admin/productos/all'])
         },
         (error) => {
           console.error('Error al crear producto', error);
