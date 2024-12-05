@@ -1,22 +1,87 @@
-<div class="sidebar bg-gray-800 text-white h-screen fixed top- left-0  " [class.-translate-x-full]="">
-
-  <button class="p-2 text-white" (click)="toggleSidebar()">X</button>
-
-  <div class="mt-20">
-    <ul *ngIf="isOpen">
-      <li class="px-4 p-2 w-64 hover:bg-gray-700">
-        <a routerLink="/admin/Inicio">Inicio</a>
-      </li>
-      <li class="px-4 p-2 w-64 hover:bg-gray-700">
-        <a routerLink="/admin/ofertas">Ofertas</a>
-      </li>
-      <li class="px-4 p-2 w-64 hover:bg-gray-700">
-        <a routerLink="/admin/productos">Productos</a>
-      </li>
-
-
-    </ul>
+<div
+  class="sidebar bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 text-white h-screen fixed top-0 left-0 shadow-lg transition-transform transform"
+  [class.-translate-x-full]="!isOpen"
+  [class.translate-x-0]="isOpen"
+>
+  <!-- Close Button -->
+  <div class="flex justify-end p-4">
+    <button
+      class="text-white bg-gray-700 rounded-full w-8 h-8 flex items-center justify-center hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500"
+      (click)="toggleSidebar()"
+    >
+      &times;
+    </button>
   </div>
+
+  <!-- Navigation Items -->
+  <nav class="mt-10 space-y-2">
+    <ul>
+      <li>
+        <a
+          routerLink="/admin/Inicio"
+          class="flex items-center px-4 py-3 w-64 hover:bg-gray-600 rounded-md transition-all"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 mr-3 text-gray-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 12l2-2m0 0l7-7 7 7m-9 2v8m4-8v8m1-16a2 2 0 012 2v6m-6-6a2 2 0 00-2-2h-2a2 2 0 00-2 2v6m6 0a2 2 0 012 2v6m-6 0a2 2 0 00-2-2H4a2 2 0 00-2 2v6"
+            />
+          </svg>
+          Inicio
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/admin/ofertas"
+          class="flex items-center px-4 py-3 w-64 hover:bg-gray-600 rounded-md transition-all"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 mr-3 text-gray-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 12h6m-3-3v6m13 3a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          Ofertas
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/admin/productos"
+          class="flex items-center px-4 py-3 w-64 hover:bg-gray-600 rounded-md transition-all"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 mr-3 text-gray-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M16 8a6 6 0 10-12 0 6 6 0 0012 0zm-2 8H6a2 2 0 00-2 2v4h12v-4a2 2 0 00-2-2z"
+            />
+          </svg>
+          Productos
+        </a>
+      </li>
+    </ul>
+  </nav>
 </div>
-
-
