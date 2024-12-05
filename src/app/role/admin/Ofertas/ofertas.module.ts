@@ -13,6 +13,7 @@ import { OfertaService } from './services/oferta.service';
 import { FormOfertasComponent } from './components/form-ofertas/form-ofertas.component';
 import { FormsModule } from '@angular/forms';
 import { VincularOfertasComponent } from './components/vincular-ofertas/vincular-ofertas.component';
+import { OfertaViculadasComponent } from './components/oferta-viculadas/oferta-viculadas.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { VincularOfertasComponent } from './components/vincular-ofertas/vincular
     TableCrudComponent,
     FormOfertasComponent,
     FormOfertasComponent,
-    VincularOfertasComponent
+    VincularOfertasComponent,
+    OfertaViculadasComponent
   ],
   imports: [
     CommonModule,

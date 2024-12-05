@@ -1,0 +1,12 @@
+<div
+  class="container mx-auto mt-8 p-4 border rounded-lg max-w-8xl sm:max-w-xl md:max-w-3xl lg:max-w-5xl xl:max-w-7xl"
+>
+  <h2 class="text-xl font-bold mb-4 text-center">Ofertas y Productos</h2>
+
+  <app-table
+    [data]="ofertas"
+    [columns]="columns"
+    (edit)="onEdit($event)"
+    (delete)="onDelete($event)"
+  ></app-table>
+</div>
