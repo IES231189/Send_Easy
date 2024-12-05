@@ -9,14 +9,16 @@ import { ProductosComponent } from './components/productos/productos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductosService } from './services/productos.service';
 import { FormProductosComponent } from './components/form-productos/form-productos.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditProductosComponent } from './components/edit-productos/edit-productos.component';
 
 
 @NgModule({
   declarations: [
     ProductosPanelComponent,
     ProductosComponent,
-    FormProductosComponent
+    FormProductosComponent,
+    EditProductosComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     HttpClientModule,
     SharedModule,
-    CategoriesModule
+    CategoriesModule,
+    FormsModule
   ],
   providers:[ProductosService]
 

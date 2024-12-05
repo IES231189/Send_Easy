@@ -1,0 +1,42 @@
+<div class="modal fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50">
+  <div class="modal-content bg-white p-6 rounded-lg shadow-lg w-96">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Editar Producto</h2>
+    <form (ngSubmit)="guardarCambios()">
+      <div class="mb-4">
+        <label for="nombre" class="block text-gray-700 font-medium mb-2">Nombre</label>
+        <input type="text" id="nombre" [(ngModel)]="editedData.nombre" name="nombre" required
+          class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+      </div>
+      <div class="mb-4">
+        <label for="descripcion" class="block text-gray-700 font-medium mb-2">Descripción</label>
+        <input type="text" id="descripcion" [(ngModel)]="editedData.descripcion" name="descripcion" required
+          class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+      </div>
+      <div class="mb-4">
+        <label for="precio" class="block text-gray-700 font-medium mb-2">Precio</label>
+        <input type="number" id="precio" [(ngModel)]="editedData.precio" name="precio" required
+          class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+      </div>
+      <div class="mb-4">
+        <label for="stock" class="block text-gray-700 font-medium mb-2">Stock</label>
+        <input type="number" id="stock" [(ngModel)]="editedData.stock" name="stock" required
+          class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+      </div>
+      <div class="mb-4">
+        <label for="imagen" class="block text-gray-700 font-medium mb-2">Subir Imagen</label>
+        <input type="file" id="imagen" (change)="onFileSelected($event)"
+          class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+      </div>
+      <div class="flex justify-end space-x-4">
+        <button type="submit"
+          class="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400">
+          Guardar Cambios
+        </button>
+        <button type="button" (click)="cerrarModal()"
+          class="px-6 py-2 bg-gray-400 text-white rounded-md hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400">
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
