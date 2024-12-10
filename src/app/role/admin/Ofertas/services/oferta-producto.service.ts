@@ -11,7 +11,7 @@ export class OfertaProductoService {
   // URL para obtener las ofertas
   private ofertasUrl = 'http://localhost:4000/api/ofertas';
 
-
+    ///private ofertaProducto = 'http://localhost:4000/api/verOfertas';
 
   // tabla-producto-oferta enspoints
 
@@ -41,6 +41,11 @@ export class OfertaProductoService {
 
   createOfertaProducto(data: { id_producto: string; id_oferta: string; descuento: number }) {
     return this.http.post('http://localhost:4000/api/verOfertas', data);
+  }
+
+  deleteOfertaProducto(idProducto: number, idOferta: number): Observable<void> {
+    const url = `${this.ofertaProducto}/${idProducto}/${idOferta}`;
+    return this.http.delete<void>(url);
   }
 
 }

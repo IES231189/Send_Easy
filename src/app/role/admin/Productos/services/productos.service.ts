@@ -10,6 +10,7 @@ import { HttpHeaders } from '@angular/common/http';
 export class ProductosService {
 
   private apiUrl = 'http://localhost:4000/api/productos';  // Asegúrate de que la URL sea la correcta
+  private recientes = 'http://localhost:4000/api/productos/recent'
 
   constructor(private http: HttpClient) { }
 
@@ -17,10 +18,6 @@ export class ProductosService {
     return this.http.get<Producto[]>(this.apiUrl);
   }
 
-  /*
-  updateProducto(producto: Producto): Observable<Producto> {
-    return this.http.put<Producto>(`${this.apiUrl}/${producto.id_producto}`, producto);
-  }*/
 
   deleteProducto(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
@@ -40,4 +37,13 @@ export class ProductosService {
 
     return this.http.put<Producto>(`${this.apiUrl}/${producto.id_producto}`, formData);
   }
+
+  getProductosrecet(): Observable<Producto[]> {
+    return this.http.get<Producto[]>(this.recientes);
+  }
+
+
+
 }
+
+

@@ -1,0 +1,5 @@
+/* Asegura que las imágenes no distorsionen */
+img {
+  object-fit: cover;
+  border-radius: 0.375rem; /* Redondear solo las imágenes */
+}

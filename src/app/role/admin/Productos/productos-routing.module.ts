@@ -5,6 +5,7 @@ import { CategoriaFormComponent } from '../Categories/components/form-categories
 import { TableCategoriesComponent } from '../Categories/components/table-categories/table-categories.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { FormProductosComponent } from './components/form-productos/form-productos.component';
+import { ProductosCardsComponent } from './components/productos-cards/productos-cards.component';
 
 const routes: Routes = [
   {
@@ -12,7 +13,8 @@ const routes: Routes = [
     children: [
       {path:'categories' , loadChildren: () =>import('../Categories/categories.module').then(m=>m.CategoriesModule)},
       {path:'all' , component:ProductosComponent},
-      {path:'add' , component:FormProductosComponent}
+      {path:'add' , component:FormProductosComponent},
+      {path:'recientes' , component:ProductosCardsComponent}
     ]
   }
 ];

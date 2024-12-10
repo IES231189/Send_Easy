@@ -16,10 +16,9 @@ export class ProductosComponent {
   columnas = [
     { name: 'id_producto', type: 'number' },
     { name: 'nombre', type: 'text' },
-    { name: 'descripcion', type: 'text' },
     { name: 'precio', type: 'number' },
-    { name: 'stock', type: 'number' },
     { name: 'imagen_url', type: 'image' },
+    { name: 'categoria', type: 'text' },
     { name: 'editar', type: 'button', action: 'edit' },
     { name: 'eliminar', type: 'button', action: 'delete' }
   ];
@@ -29,6 +28,8 @@ export class ProductosComponent {
   ngOnInit(): void {
     this.cargarProductos();
   }
+
+
 
   cargarProductos() {
     this.productoService.getProductos().subscribe(
@@ -56,42 +57,22 @@ export class ProductosComponent {
     this.mostrarModal = false;  // Ocultar el modal de edición
   }
 
-  /*
-  guardarCambios(productoEditado: Producto) {
+
+
+  guardarCambios(productoEditado: Producto & { archivoImagen?: File }) {
     console.log('Guardando cambios para el producto:', productoEditado);
-    // Lógica para actualizar el producto en el backend
-    this.productoService.updateProducto(productoEditado).subscribe(
+
+    this.productoService.updateProductoConImagen(productoEditado, productoEditado.archivoImagen || null).subscribe(
       (response) => {
         console.log('Producto actualizado:', response);
-        this.mostrarModal = false; // Cerrar el modal de edición
-        this.cargarProductos(); // Recargar los productos
+        this.mostrarModal = false;
+        this.cargarProductos();
       },
       (error) => {
         console.error('Error al actualizar producto:', error);
       }
     );
   }
-
-
-*/
-
-guardarCambios(productoEditado: Producto & { archivoImagen?: File }) {
-  console.log('Guardando cambios para el producto:', productoEditado);
-
-  this.productoService.updateProductoConImagen(productoEditado, productoEditado.archivoImagen || null).subscribe(
-    (response) => {
-      console.log('Producto actualizado:', response);
-      this.mostrarModal = false;
-      this.cargarProductos();
-    },
-    (error) => {
-      console.error('Error al actualizar producto:', error);
-    }
-  );
-}
-
-
-
 
 
 
@@ -112,10 +93,13 @@ guardarCambios(productoEditado: Producto & { archivoImagen?: File }) {
   }
 
   cancelarEliminar() {
-    this.mostrarModalEliminar = false; // Cerrar el modal de eliminación
+    this.mostrarModalEliminar = false;
   }
 
   cerrarModal() {
-    this.mostrarModal = false;  // Cerrar el modal de edición
+    this.mostrarModal = false;
   }
+
+
+
 }

@@ -11,6 +11,7 @@ import { ProductosService } from './services/productos.service';
 import { FormProductosComponent } from './components/form-productos/form-productos.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditProductosComponent } from './components/edit-productos/edit-productos.component';
+import { ProductosCardsComponent } from './components/productos-cards/productos-cards.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { EditProductosComponent } from './components/edit-productos/edit-product
     ProductosPanelComponent,
     ProductosComponent,
     FormProductosComponent,
-    EditProductosComponent
+    EditProductosComponent,
+    ProductosCardsComponent
   ],
   imports: [
     CommonModule,
